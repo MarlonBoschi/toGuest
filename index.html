@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação ToGuest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        .hdToGuest{
+            padding-top: 6px;
+            padding-bottom: 6px;
+            border-radius: 10px;
+            color: black;
+            background-color: #e69c10;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        button {
+            padding: 7px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #f4f4f4;
+            border: 1px solid;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        .btnHd{
+            color: #e69c10;
+            font-weight: bold;
+            background-color: white;
+        }
+        .container {
+            margin: 20px;
+        }
+        .details {
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hdToGuest" id="">ToGuest</div>
+    <div>
+        <button id="intro">Introdução</button>
+        <button id="functionBtn">Funcionalidades</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="details" id="details">
+        <p id="detailsTxt"><b>Selecione acima para ver os detalhes.</b></p>
+    </div>
+</div>
+
+<script>
+
+    function clicked(button) {
+        const detailsTxt = document.getElementById('detailsTxt');
+        var txtIntro;
+        document.getElementById("intro").classList.remove("btnHd");
+        document.getElementById("functionBtn").classList.remove("btnHd");
+        switch (button) {
+            case 'intro':
+                document.getElementById("intro").classList.add("btnHd");
+                txtIntro = "<b>ToGuest</b>, software que ira intermediar interanções entre hospede, hotel e fornecedor, facilitando seus objetivos.<br>Este software tem o objetivo de gerenciar a comunicação e atividades de forma eficiente e clara.<br>A proposta do software é gerenciar, intermediar e failitar os processos, entre hóspede, fornecedor de atividades ou serviços e hóteis.";
+                document.getElementById("detailsTxt").innerHTML = txtIntro;
+                break;
+            case 'functionBtn':
+                document.getElementById("functionBtn").classList.add("btnHd");
+                txtIntro = "<b>Módulo de Administrador</b><br>Login<br>Recuperar senha<br>Criação e edição de usuário administrador e usuário com permissões especificas<br>Visualização de log, por lista e detalhes sobre o log<br>Envio do convite pré cadrastro para hóspede, fornecedor e hotel<br>Conclusão de cadastro<br>Inativar ou ativar usuário, hotel e fornecedor<br><br><b>Módulo de Hotel</b><br>Login<br>Recuperar senha<br>Criação e edição de usuário administrador e usuário com permissões especificas<br>Vincular e desvincular fornecedor ao hotel<br>Criar e editar categorias dos quartos e quantidade de quartos<br>Criar e editar serviços e produtos<br>Gerenciar os quartos<br>Visualizar e gerenciar valores gastos pelos hospedes<br><br><b>Módulo de Fornecedor</b><br>Login<br>Recuperar senha<br>Criação e edição de usuário administrador e usuário com permissões especificas<br>Vincular e desvincular hotéis ao fornecedor<br>Criar e editar serviços e produtos<br>Gerenciar os serviços e produtos<br>Gerenciar gastos do hospede<br>";
+                document.getElementById("detailsTxt").innerHTML = txtIntro;
+                break;
+            default:
+                document.getElementById("intro").classList.add("btnHd");
+                txtIntro = "ToGuest, software que ira intermediar interanções entre hospede, hotel e fornecedor, facilitando para o hospede e os demais que utilizam o software, seus objetivos.<br>Este software tem o objetivo de gerenciar a comunicação e atividades de forma eficiente e clara.<br>A proposta do software é gerenciar, intermediar e failitar os processos, entre hóspede, fornecedor de atividades ou serviços e hóteis.";
+                document.getElementById("detailsTxt").innerHTML = txtIntro;
+                break;
+        }
+    }
+
+    
+    document.getElementById('intro').addEventListener('click', function() { clicked('intro'); });
+    document.getElementById('functionBtn').addEventListener('click', function() { clicked('functionBtn'); });
+</script>
+
+</body>
+</html>
